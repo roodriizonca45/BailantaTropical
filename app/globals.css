@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-warm-50:  #fff7f0;
+  --color-warm-100: #ffe8d0;
+  --color-warm-200: #ffd0a0;
+  --color-warm-300: #ffb870;
+  --color-warm-400: #ff9a40;
+  --color-warm-500: #ff7a2c;
+  --color-warm-600: #e85e10;
+  --color-warm-700: #c44508;
+  --color-warm-800: #9c3005;
+  --color-warm-900: #6e1e02;
+
+  --shadow-premium:
+    0 4px 6px -1px rgba(0,0,0,0.4),
+    0 20px 60px -10px rgba(255,122,44,0.25);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(1200px 700px at 20% -10%, rgba(255,122,44,0.16), transparent 55%),
+    radial-gradient(1000px 600px at 90% 10%,  rgba(255,154,85,0.12), transparent 60%),
+    #090909;
+}
+
+.glass {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
