@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { incrementView, incrementOpen, getStats } from "../../../../data/analytics";
 import { getPersonBySlug } from "@/data/people";
 
-export const runtime = "edge"; // Redis REST es compatible con Edge
+
 
 export async function POST(
   _req: NextRequest,
