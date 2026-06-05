@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getAllPeople, getPhotoUrl } from "@/data/people";
-
+export const dynamic = "force-dynamic";
 export default async function ArtistasPage() {
   const people = await getAllPeople();
 
