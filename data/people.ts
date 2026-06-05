@@ -32,3 +32,35 @@ export function getPhotoUrl(slug: string, photo_url?: string) {
 export function getVideoUrl(slug: string, video_url?: string) {
   return video_url ?? `/${slug}/videos/video.mp4`;
 }
+// Obtener fotos de una persona
+export async function getFotosBySlug(slug: string): Promise<{ id: number; url: string; orden: number }[]> {
+  const result = await pool.query(
+    "SELECT * FROM fotos WHERE persona_slug = $1 ORDER BY orden ASC",
+    [slug]
+  );
+  return result.rows;
+}
+
+// Obtener videos de una persona
+export async function getVideosBySlug(slug: string): Promise<{ id: number; url: string; orden: number }[]> {
+  const result = await pool.query(
+    "SELECT * FROM videos WHERE persona_slug = $1 ORDER BY orden ASC",
+    [slug]
+  );
+  return result.rows;
+}
+
+// Obtener todo el contenido del mix
+export async function getMixFotos(): Promise<{ id: number; url: string; persona_slug: string }[]> {
+  const result = await pool.query(
+    "SELECT * FROM fotos WHERE es_mix = true ORDER BY id DESC"
+  );
+  return result.rows;
+}
+
+export async function getMixVideos(): Promise<{ id: number; url: string; persona_slug: string }[]> {
+  const result = await pool.query(
+    "SELECT * FROM videos WHERE es_mix = true ORDER BY id DESC"
+  );
+  return result.rows;
+}

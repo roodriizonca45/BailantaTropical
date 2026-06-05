@@ -1,9 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Bailanta QR Videos",
-  description: "Plataforma premium para gestionar QR asociados a videos.",
+export const metadata = {
+  title: "Bailanta Tropical",
+  icons: {
+    icon: "/barrilito.jpg",
+  },
 };
 
 export default function RootLayout({
