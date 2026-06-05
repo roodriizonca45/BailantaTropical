@@ -79,13 +79,23 @@ export default async function PerfilPage({ params, searchParams }: Props) {
           <h2 className="text-xs font-black text-white/30 tracking-[3px] uppercase mb-4">Fotos</h2>
           <div className="grid grid-cols-3 gap-3">
             {fotos.map((foto) => (
-              <div key={foto.id} className="relative aspect-square overflow-hidden rounded-2xl border border-white/8">
-                <Image src={foto.url} alt={person.name} fill sizes="33vw" className="object-cover hover:scale-105 transition-transform duration-300" />
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
+          <div
+            key={foto.id}
+            className="relative aspect-square overflow-hidden rounded-2xl border border-white/8 cursor-pointer"
+            onClick={(e) => {
+              const modal = document.createElement('div');
+                  modal.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black/90';
+                  modal.innerHTML = `<img src="${foto.url}" class="max-h-screen max-w-screen object-contain rounded-xl" />`;
+                  modal.onclick = () => modal.remove();
+                  document.body.appendChild(modal);
+              }}
+          >
+          <Image src={foto.url} alt={person.name} fill sizes="33vw" className="object-cover hover:scale-105 transition-transform duration-300" />
+        </div>
+      ))}
+    </div>
+  </section>
+)}
 
       {/* Videos */}
       <section className="mt-10">
